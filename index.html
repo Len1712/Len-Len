@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I Love You</title>
+  <!-- Khmer-style font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Hanuman:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to top right, #ffccd5, #ffe6f0);
+      overflow: hidden;
+      height: 100vh;
+      font-family: 'Hanuman', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .scene {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .couple {
+       background: url('https://imgur.com/a/0GDChGy') no-repeat center;
+      background-size: contain;
+      width: 200px;
+      height: 300px;
+      margin: auto;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    .text {
+      font-size: 60px;
+      color: #e60073;
+      text-shadow: 0 0 15px #ffffff;
+      animation: fadeIn 4s ease-in-out forwards;
+      margin-top: 30px;
+      font-family: 'Hanuman', serif;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(-45deg);
+      animation: rise 6s infinite ease-in;
+    }
+
+    .heart::before, .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: 10px;
+    }
+
+    @keyframes rise {
+      0% { bottom: 0; opacity: 1; }
+      100% { bottom: 100vh; opacity: 0; }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="scene">
+    <div class="couple"></div>
+    <div class="text">អូន ស្រឡាញ់បង សុវណ្ណ 😘💋💕</div>
+  </div>
+
+  <!-- Floating hearts -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDelay = Math.random() * 5 + 's';
+      heart.style.background = ['#ff4d6d','#ff99c8','#ff5c8a'][Math.floor(Math.random()*3)];
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <!-- Romantic background music -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/audio/2023/03/09/audio_7cb5c36c70.mp3" type="audio/mpeg">
+  </audio>
+</body>
+</html>
